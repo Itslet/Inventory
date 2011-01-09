@@ -56,8 +56,8 @@ namespace Tasks
 
         static void Main(string[] args)
         {
-           // initialFill();
-            Fout();
+            initialFill();
+            //Fout();
             Console.WriteLine("Ready");
             Console.ReadKey();
         }
