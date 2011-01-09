@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Core.BladeChassis>
+
+@{
+    View.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Blade Chassis</h2>
+
+<p>
+    @Html.ActionLink("Create New Blade Chassis", "Create")
+</p>
+<p>
+    @Html.ActionLink("Home", "Index", "Home")
+</p>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>
+            ChassisID
+        </th>
+        <th>
+           Description
+        </th>
+        <th>
+            UnitsHigh
+        </th>
+        <th>
+            Bays
+        </th>
+        <th>
+            Power
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChassisID }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.ChassisID  })
+        </td>
+        <td>
+            @item.ChassisID
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @item.UnitsHigh
+        </td>
+        <td>
+            @item.Bays
+        </td>
+        <td>
+            @item.Power
+        </td>
+    </tr>
+}
+
+</table>
+

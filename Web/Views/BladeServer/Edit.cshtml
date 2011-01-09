@@ -1,0 +1,66 @@
+﻿@model Web.Model.BladeServerEditViewData
+
+@{
+    View.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Server</h2>
+
+<p>
+    @Html.ActionLink("Home", "Index", "Home")
+</p>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    
+    
+     <div class="editor-label">
+            @Html.LabelFor(model => model.Hostname)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Hostname)
+            @Html.ValidationMessageFor(model => model.Hostname)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ServerRole)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ServerRole)
+            @Html.ValidationMessageFor(model => model.ServerRole)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IPAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IPAddress)
+            @Html.ValidationMessageFor(model => model.IPAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OS)
+            @Html.ValidationMessageFor(model => model.OS)
+        </div>
+        
+    <div class="editor-label">
+            Enclosure
+        </div>
+        <div class="editor-field">
+          @Html.DropDownListFor(c => c.SelectedBladeEnclosure, Model.BladeEnclosures)            
+        </div>
+       
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+          
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

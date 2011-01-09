@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Core.BladeServer>
+
+@{
+    View.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Servers</h2>
+
+<p>
+    @Html.ActionLink("Create New Server", "Create")
+</p>
+<p>
+    @Html.ActionLink("Home", "Index", "Home")
+</p>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>
+            Hostname
+        </th>
+        <th>
+            ServerRole
+        </th>
+        <th>
+            IPAddress
+        </th>
+        <th>
+            OS
+        </th>
+          <th>
+            Blade Chassis
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Hostname  }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Hostname  })
+        </td>
+        <td>
+            @item.Hostname
+        </td>
+        <td>
+            @item.ServerRole
+        </td>
+        <td>
+            @item.IPAddress
+        </td>
+        <td>
+            @item.OS
+        </td>
+         <td>
+            @item.BladeChassis.Description (@item.BladeChassis.ChassisID)
+        </td>
+        
+
+    </tr>
+}
+
+</table>
+
