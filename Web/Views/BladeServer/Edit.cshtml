@@ -16,42 +16,42 @@
     
     
      <div class="editor-label">
-            @Html.LabelFor(model => model.Hostname)
+            @Html.LabelFor(model => model.BladeServer.Hostname)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Hostname)
-            @Html.ValidationMessageFor(model => model.Hostname)
+            @Html.EditorFor(model => model.BladeServer.Hostname)
+            @Html.ValidationMessageFor(model => model.BladeServer.Hostname)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ServerRole)
+            @Html.LabelFor(model => model.BladeServer.ServerRole)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ServerRole)
-            @Html.ValidationMessageFor(model => model.ServerRole)
+            @Html.EditorFor(model => model.BladeServer.ServerRole)
+            @Html.ValidationMessageFor(model => model.BladeServer.ServerRole)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.IPAddress)
+            @Html.LabelFor(model => model.BladeServer.IPAddress)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.IPAddress)
-            @Html.ValidationMessageFor(model => model.IPAddress)
+            @Html.EditorFor(model => model.BladeServer.IPAddress)
+            @Html.ValidationMessageFor(model => model.BladeServer.IPAddress)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.OS)
+            @Html.LabelFor(model => model.BladeServer.OS)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.OS)
-            @Html.ValidationMessageFor(model => model.OS)
+            @Html.EditorFor(model => model.BladeServer.OS)
+            @Html.ValidationMessageFor(model => model.BladeServer.OS)
         </div>
         
     <div class="editor-label">
             Enclosure
         </div>
         <div class="editor-field">
-          @Html.DropDownListFor(c => c.SelectedBladeEnclosure, Model.BladeEnclosures)            
+          @Html.DropDownListFor(c => c.BladeServer.BladeChassis.ChassisID, Model.Enclosures)            
         </div>
        
         <p>

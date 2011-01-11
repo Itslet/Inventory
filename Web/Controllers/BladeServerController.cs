@@ -88,12 +88,15 @@ namespace Web.Controllers
 
             BladeServerEditViewData viewData = new BladeServerEditViewData
                 {
-                    Hostname = serverToEdit.Hostname,
+                    /* Hostname = serverToEdit.Hostname,
                     IPAddress = serverToEdit.IPAddress,
                     ServerRole = serverToEdit.ServerRole,
                     OS = serverToEdit.OS,
                     BladeEnclosures = selectList,
-                    SelectedBladeEnclosure = serverToEdit.BladeChassis.ChassisID
+                    SelectedBladeEnclosure = serverToEdit.BladeChassis.ChassisID */
+
+                    BladeServer = serverToEdit,
+                    Enclosures = selectList
                 };
             
             return View(viewData);
@@ -107,17 +110,20 @@ namespace Web.Controllers
         {
             try
             {
-                //AutoMapper would come into handy here
-                var srv = SessionFactory.Current.Single<BladeServer>(z => z.Hostname == collection["Hostname"]);
+                //AutoMapper would REALLY come into handy here
+                var srv = SessionFactory.Current.Single<BladeServer>(z => z.Hostname == collection["BladeServer.Hostname"]);
 
-                var chassis = SessionFactory.Current.Single<BladeChassis>(y => y.ChassisID == collection["SelectedBladeEnclosure"]);
-                    srv.BladeChassis = chassis;
+                var chassis = SessionFactory.Current.Single<BladeChassis>(y => y.ChassisID == collection["BladeServer.BladeChassis.ChassisID"]);
+
+                //UpdateModel(srv);
+                srv.BladeChassis = chassis;
                 
-                srv.Hostname = collection["Hostname"];
-                srv.IPAddress = collection["IPAddress"];
-                srv.OS = collection["OS"];
-                srv.ServerRole = collection["Serverrole"];
-                
+                //ugly code but for now it'll do
+                srv.Hostname = collection["BladeServer.Hostname"];
+                srv.IPAddress = collection["BladeServer.IPAddress"];
+                srv.OS = collection["BladeServer.OS"];
+                srv.ServerRole = collection["BladeServer.ServerRole"];
+              
                 SessionFactory.Current.Save(srv);
                 SessionFactory.Current.CommitChanges();
                 return RedirectToAction("Index");
