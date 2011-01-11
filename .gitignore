@@ -33,15 +33,11 @@
 
 # OS generated files #
 ######################
-.DS_Store?
-ehthumbs.db
 Icon?
 Thumbs.db
 Todo.txt
 
-*resharper.user
 resources
-Lib
 [Dd]ebug/
 [Rr]elease/
 build/
@@ -49,6 +45,4 @@ build/
 [Oo]bj/
 *.suo
 *.sln.cache
-_ReSharper.*/
 *.user
-NHibernateHelper.cs
